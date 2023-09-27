@@ -1,0 +1,36 @@
+[
+    {
+        "name": "spawn_models",
+        "description": "Spawn AI models",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "roles": {
+                    "type": "array",
+                    "description": "AI Roles (e.g. 'Physicist', 'Freddie Mercury', 'Janitor', etc. Can be anything really.)",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "types": {
+                    "type": "array",
+                    "description": "How smart those models are. In order of roles. Dumb models are way cheaper. Smart models are way more expensive but they reason better.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "max_smart": 3,
+                    "max_dumb": 5,
+                    "enum": ["dumb", "smart"]
+                },
+                "queries": {
+                    "type": "array",
+                    "description": "What do you want to ask the models exactly. In order of roles. One query per role.",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["roles", "types", "queries"]
+        }
+    }
+]
